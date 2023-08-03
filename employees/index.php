@@ -10,8 +10,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     echo json_encode($data);
 }
 
-//Create employee
+//createemployee
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] == 'createemployee') {
+
     $post_data = json_decode($_POST['employee_data'], true);
     $data = $employee->createemployee($post_data);
     echo json_encode($data);
