@@ -10,7 +10,7 @@ class Company
     }
     public function createcompany($post_data)
     {
-        // Assuming $post_data contains the necessary values
+
 
         $company_name = $post_data['company_name'];
         $company_address = $post_data['company_address'];
