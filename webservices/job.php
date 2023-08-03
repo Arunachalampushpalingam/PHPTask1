@@ -47,7 +47,7 @@ class Job
         $created_at = $post_data['created_at'];
         $updated_at = $post_data['updated_at'];
 
-        $sql = "INSERT INTO your_table_name (category_name, category_desc, job_level, company_id, created_at, updated_at) 
+        $sql = "INSERT INTO tbo_jobcategory (category_name, category_desc, job_level, company_id, created_at, updated_at) 
         VALUES ('$category_name', '$category_desc', $job_level, $company_id, '$created_at', '$updated_at')";
 
 
@@ -72,7 +72,7 @@ class Job
         $created_at = $post_data['created_at'];
         $updated_at = $post_data['updated_at'];
 
-        $sql = "INSERT INTO your_table_name (subcategory_name, subcategory_desc, category_id, company_id, created_at, updated_at) 
+        $sql = "INSERT INTO tbo_jobsubcategory (subcategory_name, subcategory_desc, category_id, company_id, created_at, updated_at) 
         VALUES ('$subcategory_name', '$subcategory_desc', $category_id, $company_id, '$created_at', '$updated_at')";
 
 
@@ -96,7 +96,7 @@ class Job
         $created_at = $post_data['created_at']; // Assuming it is a datetime string (e.g., '2023-08-03 10:00:00')
         $updated_at = $post_data['updated_at']; // Assuming it is a datetime string (e.g., '2023-08-03 11:00:00')
 
-        $sql = "INSERT INTO your_table_name (grade_name, grade_description, company_id, created_by_id, created_at, updated_at) 
+        $sql = "INSERT INTO tbo_jobgrade (grade_name, grade_description, company_id, created_by_id, created_at, updated_at) 
         VALUES ('$grade_name', '$grade_description', $company_id, $created_by_id, '$created_at', '$updated_at')";
 
 
