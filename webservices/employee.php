@@ -12,6 +12,7 @@ class Employee
     // Get employeelist
     public function employeelist($post_data)
     {
+
         $data = array();
         $res = array();
         $sql = "SELECT 
@@ -39,12 +40,20 @@ class Employee
             tbo_employee_qualification AS qual ON emp.id = qual.employee_id
         LEFT JOIN 
             tbo_employee_previous_experience AS exp ON emp.id = exp.employee_id";
-
+        $sql .= ' where 1=1 ';
+        //Filter by position
         if (isset($post_data['position']) && $post_data['position'] != '') {
+            $sql .= '  && emp.designation=' . $post_data['position'] . '';
         }
+        //Filter by emp status
         if (isset($post_data['status']) && $post_data['status'] != '') {
-
+            $sql .= ' AND emp.status = "' . $post_data['status'] . '"';
         }
+        //filter by salary
+        if (isset($post_data['min_salary']) && $post_data['min_salary'] != '' && isset($post_data['max_salary']) && $post_data['max_salary'] != '') {
+            $sql .= ' AND emp.salary BETWEEN ' . $post_data['min_salary'] . ' AND ' . $post_data['max_salary'];
+        }
+
         $sql .= "  GROUP BY emp.id;";
 
         $result = $this->conn->query($sql);

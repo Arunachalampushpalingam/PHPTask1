@@ -3,7 +3,8 @@ require_once '../webservices/employee.php';
 $employee = new Employee();
 
 //Employee list
-if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] == 'employeelist') {
+
 
     $post_data = json_decode($_POST['filter_query'], true);
     $data = $employee->employeelist($post_data);
